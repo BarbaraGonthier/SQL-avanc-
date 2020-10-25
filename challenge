@@ -1,0 +1,45 @@
+mysql> SELECT name, COUNT(*) AS nb_players FROM player JOIN team ON team.id=play
+er.team_id GROUP BY team_id ORDER BY nb_players;
++------------+------------+
+| name       | nb_players |
++------------+------------+
+| Hufflepuff |         12 |
+| Ravenclaw  |         15 |
+| Slytherin  |         21 |
+| Gryffindor |         36 |
++------------+------------+
+4 rows in set (0.01 sec)
+
+
+
+mysql> SELECT name, COUNT(*) AS nb_players FROM player JOIN team ON team.id=play
+er.team_id GROUP BY team_id HAVING nb_players>14 ORDER BY name;
++------------+------------+
+| name       | nb_players |
++------------+------------+
+| Gryffindor |         36 |
+| Ravenclaw  |         15 |
+| Slytherin  |         21 |
++------------+------------+
+3 rows in set (0.00 sec)
+
+
+mysql> SELECT * FROM player JOIN wizard ON wizard.id=player.wizard_id WHERE DATE_FORMAT(enrollment_date, "%W")='Monday';
++----+-----------+---------+--------+-----------------+----+-------------+------------+
+| id | wizard_id | team_id | role   | enrollment_date | id | firstname   | lastname   |
++----+-----------+---------+--------+-----------------+----+-------------+------------+
+|  1 |         1 |       4 | beater | 1995-10-09      |  1 | Hannah      | Abbott     |
+|  6 |         6 |       1 | beater | 1994-01-10      |  6 | Sirius      | Black      |
+| 12 |        12 |       2 | chaser | 1992-01-27      | 12 | Cho         | Chang      |
+| 20 |        20 |       1 | keeper | 1995-04-24      | 20 | Aberforth   | Dumbledore |
+| 25 |        25 |       3 | beater | 1996-12-16      | 25 | Marcus      | Flint      |
+| 30 |        30 |       1 | seeker | 1993-08-30      | 30 | Godric      | Gryffindor |
+| 39 |        39 |       1 | beater | 1992-02-17      | 39 | Alice       | Longbottom |
+| 41 |        41 |       1 | chaser | 1999-10-25      | 41 | Augusta     | Longbottom |
+| 44 |        44 |       2 | chaser | 1991-03-11      | 44 | Xenophilius | Lovegood   |
+| 50 |        50 |       3 | chaser | 1996-12-02      | 50 | Theodore    | Nott       |
+| 82 |        82 |       1 | chaser | 1991-08-26      | 82 | George      | Weasley    |
+| 88 |        88 |       3 | beater | 1991-07-08      | 88 | Blaise      | Zabini     |
+| 90 |        90 |       1 | keeper | 1993-01-04      | 90 | Cadogan     |            |
++----+-----------+---------+--------+-----------------+----+-------------+------------+
+13 rows in set (0.00 sec)
