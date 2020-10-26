@@ -36,4 +36,4 @@ mysql> SELECT * FROM player JOIN wizard ON wizard.id=player.wizard_id JOIN team 
 | 20 |        20 |       1 | keeper | 1995-04-24      | 20 | Aberforth   | Dumbledore |
 | 41 |        41 |       1 | chaser | 1999-10-25      | 41 | Augusta     | Longbottom |
 +----+-----------+---------+--------+-----------------+----+-------------+------------+
-13 rows in set (0.00 sec)
+7 rows in set (0.00 sec)
